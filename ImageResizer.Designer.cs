@@ -32,7 +32,7 @@
             PicAfterResize = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            BtnAddPhoto = new Button();
+            BtnAddPict = new Button();
             BtnResize = new Button();
             txtFileName = new TextBox();
             txtCurrentSize = new TextBox();
@@ -80,15 +80,15 @@
             label2.TabIndex = 3;
             label2.Text = "After Resize";
             // 
-            // BtnAddPhoto
+            // BtnAddPict
             // 
-            BtnAddPhoto.Location = new Point(354, 336);
-            BtnAddPhoto.Name = "BtnAddPhoto";
-            BtnAddPhoto.Size = new Size(93, 23);
-            BtnAddPhoto.TabIndex = 4;
-            BtnAddPhoto.Text = "Add Photo";
-            BtnAddPhoto.UseVisualStyleBackColor = true;
-            BtnAddPhoto.Click += BtnAddPhoto_Click;
+            BtnAddPict.Location = new Point(354, 336);
+            BtnAddPict.Name = "BtnAddPict";
+            BtnAddPict.Size = new Size(93, 23);
+            BtnAddPict.TabIndex = 4;
+            BtnAddPict.Text = "Add Photo";
+            BtnAddPict.UseVisualStyleBackColor = true;
+            BtnAddPict.Click += BtnAddPict_Click;
             // 
             // BtnResize
             // 
@@ -165,7 +165,7 @@
             Controls.Add(txtCurrentSize);
             Controls.Add(txtFileName);
             Controls.Add(BtnResize);
-            Controls.Add(BtnAddPhoto);
+            Controls.Add(BtnAddPict);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(PicAfterResize);
@@ -184,7 +184,7 @@
         private PictureBox PicAfterResize;
         private Label label1;
         private Label label2;
-        private Button BtnAddPhoto;
+        private Button BtnAddPict;
         private Button BtnResize;
         private TextBox txtFileName;
         private TextBox txtCurrentSize;

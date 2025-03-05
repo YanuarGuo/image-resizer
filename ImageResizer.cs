@@ -17,7 +17,7 @@ namespace ImageResizerApp
             InitializeComponent();
         }
 
-        private void BtnAddPhoto_Click(object sender, EventArgs e)
+        private void BtnAddPict_Click(object sender, EventArgs e)
         {
             using OpenFileDialog ofd = new OpenFileDialog()
             {
