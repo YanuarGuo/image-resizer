@@ -5,7 +5,7 @@ A simple image resizer built using C# and .NET. This application allows users to
 ## Features
 - Resize images to a specified width and height
 - Maintain aspect ratio (optional)
-- Support for popular image formats (JPEG, PNG, BMP, GIF)
+- Support for popular image formats (JPG, JPEG, PNG, BMP, GIF)
 - Easy-to-use command-line interface
 
 ## Prerequisites
@@ -14,8 +14,7 @@ A simple image resizer built using C# and .NET. This application allows users to
 ## Installation
 1. Clone this repository:
    ```sh
-   git clone https://github.com/yourusername/ImageResizer.git
-   cd ImageResizer
+   git clone https://github.com/YanuarGuo/image-resizing.git
    ```
 2. Open the project in Visual Studio or any C# IDE of your choice.
 
