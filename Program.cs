@@ -1,4 +1,4 @@
-namespace image_resizing
+namespace ImageResizerApp
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace image_resizing
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ImageResizingForm());
+            Application.Run(new ImageResizerForm());
         }
     }
 }

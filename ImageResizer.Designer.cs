@@ -1,6 +1,6 @@
-﻿namespace image_resizing
+﻿namespace ImageResizerApp
 {
-    partial class ImageResizingForm
+    partial class ImageResizerForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -152,7 +152,7 @@
             label4.TabIndex = 11;
             label4.Text = "x";
             // 
-            // ImageResizingForm
+            // ImageResizerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -170,8 +170,8 @@
             Controls.Add(label1);
             Controls.Add(PicAfterResize);
             Controls.Add(PicBeforeResize);
-            Name = "ImageResizingForm";
-            Text = "ImageResizingForm";
+            Name = "ImageResizerForm";
+            Text = "ImageResizerForm";
             ((System.ComponentModel.ISupportInitialize)PicBeforeResize).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicAfterResize).EndInit();
             ResumeLayout(false);

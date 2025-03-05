@@ -3,16 +3,16 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace image_resizing
+namespace ImageResizerApp
 {
-    public partial class ImageResizingForm : Form
+    public partial class ImageResizerForm : Form
     {
         private Bitmap originalImage;
         private string loadedFilePath;
         private int newWidth;
         private int newHeight;
 
-        public ImageResizingForm()
+        public ImageResizerForm()
         {
             InitializeComponent();
         }

@@ -14,7 +14,7 @@ A simple image resizer built using C# and .NET. This application allows users to
 ## Installation
 1. Clone this repository:
    ```sh
-   git clone https://github.com/YanuarGuo/image-resizing.git
+   git clone https://github.com/YanuarGuo/image-resizer.git
    ```
 2. Open the project in Visual Studio or any C# IDE of your choice.
 
