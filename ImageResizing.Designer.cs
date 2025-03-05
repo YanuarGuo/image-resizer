@@ -36,7 +36,10 @@
             BtnResize = new Button();
             txtFileName = new TextBox();
             txtCurrentSize = new TextBox();
-            txtResizedSize = new TextBox();
+            txtHeight = new TextBox();
+            txtWidth = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)PicBeforeResize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicAfterResize).BeginInit();
             SuspendLayout();
@@ -53,7 +56,7 @@
             // PicAfterResize
             // 
             PicAfterResize.BorderStyle = BorderStyle.FixedSingle;
-            PicAfterResize.Location = new Point(332, 12);
+            PicAfterResize.Location = new Point(286, 12);
             PicAfterResize.Name = "PicAfterResize";
             PicAfterResize.Size = new Size(260, 260);
             PicAfterResize.TabIndex = 1;
@@ -71,7 +74,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(430, 275);
+            label2.Location = new Point(384, 275);
             label2.Name = "label2";
             label2.Size = new Size(68, 15);
             label2.TabIndex = 3;
@@ -79,7 +82,7 @@
             // 
             // BtnAddPhoto
             // 
-            BtnAddPhoto.Location = new Point(400, 337);
+            BtnAddPhoto.Location = new Point(354, 336);
             BtnAddPhoto.Name = "BtnAddPhoto";
             BtnAddPhoto.Size = new Size(93, 23);
             BtnAddPhoto.TabIndex = 4;
@@ -89,7 +92,7 @@
             // 
             // BtnResize
             // 
-            BtnResize.Location = new Point(499, 337);
+            BtnResize.Location = new Point(453, 336);
             BtnResize.Name = "BtnResize";
             BtnResize.Size = new Size(93, 23);
             BtnResize.TabIndex = 5;
@@ -99,9 +102,9 @@
             // 
             // txtFileName
             // 
-            txtFileName.Location = new Point(12, 337);
+            txtFileName.Location = new Point(11, 337);
             txtFileName.Name = "txtFileName";
-            txtFileName.Size = new Size(375, 23);
+            txtFileName.Size = new Size(336, 23);
             txtFileName.TabIndex = 6;
             // 
             // txtCurrentSize
@@ -113,22 +116,52 @@
             txtCurrentSize.Size = new Size(75, 23);
             txtCurrentSize.TabIndex = 7;
             // 
-            // txtResizedSize
+            // txtHeight
             // 
-            txtResizedSize.BackColor = SystemColors.Control;
-            txtResizedSize.Location = new Point(426, 293);
-            txtResizedSize.Name = "txtResizedSize";
-            txtResizedSize.ReadOnly = true;
-            txtResizedSize.Size = new Size(75, 23);
-            txtResizedSize.TabIndex = 8;
+            txtHeight.BackColor = SystemColors.ButtonHighlight;
+            txtHeight.Location = new Point(367, 293);
+            txtHeight.Name = "txtHeight";
+            txtHeight.Size = new Size(38, 23);
+            txtHeight.TabIndex = 8;
+            // 
+            // txtWidth
+            // 
+            txtWidth.BackColor = SystemColors.ButtonHighlight;
+            txtWidth.Location = new Point(424, 293);
+            txtWidth.Name = "txtWidth";
+            txtWidth.Size = new Size(38, 23);
+            txtWidth.TabIndex = 9;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = SystemColors.Control;
+            label3.Location = new Point(464, 296);
+            label3.Name = "label3";
+            label3.Size = new Size(20, 15);
+            label3.TabIndex = 10;
+            label3.Text = "px";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.Control;
+            label4.Location = new Point(409, 296);
+            label4.Name = "label4";
+            label4.Size = new Size(13, 15);
+            label4.TabIndex = 11;
+            label4.Text = "x";
             // 
             // ImageResizingForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(604, 373);
-            Controls.Add(txtResizedSize);
+            ClientSize = new Size(559, 373);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(txtWidth);
+            Controls.Add(txtHeight);
             Controls.Add(txtCurrentSize);
             Controls.Add(txtFileName);
             Controls.Add(BtnResize);
@@ -155,6 +188,9 @@
         private Button BtnResize;
         private TextBox txtFileName;
         private TextBox txtCurrentSize;
-        private TextBox txtResizedSize;
+        private TextBox txtHeight;
+        private TextBox txtWidth;
+        private Label label3;
+        private Label label4;
     }
 }
