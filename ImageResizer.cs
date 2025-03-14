@@ -7,10 +7,8 @@ namespace ImageResizerApp
 {
     public partial class ImageResizerForm : Form
     {
-        private Bitmap originalImage;
-        private string loadedFilePath;
-        private int newWidth;
-        private int newHeight;
+        private Bitmap? originalImage;
+        private string? loadedFilePath;
 
         public ImageResizerForm()
         {
@@ -19,7 +17,7 @@ namespace ImageResizerApp
 
         private void BtnAddPict_Click(object sender, EventArgs e)
         {
-            using OpenFileDialog ofd = new OpenFileDialog()
+            using OpenFileDialog ofd = new()
             {
                 Filter =
                     "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png",
@@ -34,14 +32,14 @@ namespace ImageResizerApp
                 PicBeforeResize.Image = originalImage;
 
                 txtFileName.Text = loadedFilePath;
-                txtCurrentSize.Text = $"{originalImage.Width} x {originalImage.Height} px";
+                txtCurrentSize.Text = $"{originalImage.Height} x {originalImage.Width} px";
                 txtCurrentSize.TextAlign = HorizontalAlignment.Center;
             }
         }
 
         private void BtnResize_Click(object sender, EventArgs e)
         {
-            if (originalImage == null)
+            if (originalImage == null || string.IsNullOrEmpty(loadedFilePath))
             {
                 MessageBox.Show(
                     "Please load an image first.",
@@ -74,26 +72,64 @@ namespace ImageResizerApp
                 return;
             }
 
-            Bitmap resizedImage = Resize(originalImage, newWidth, newHeight);
-            PicAfterResize.Image = resizedImage;
+            try
+            {
+                using Bitmap resizedImage = Resize(originalImage, newWidth, newHeight);
+                PicAfterResize.SizeMode = PictureBoxSizeMode.Zoom;
+                PicAfterResize.Image = resizedImage;
 
-            string newFilePath = loadedFilePath.Insert(
-                loadedFilePath.LastIndexOf('.'),
-                $"_Resized"
-            );
-            resizedImage.Save(newFilePath, ImageFormat.Jpeg);
+                string newFilePath = GetNextFileName(loadedFilePath);
+                resizedImage.Save(newFilePath, ImageFormat.Jpeg);
 
-            MessageBox.Show(
-                $"Image resized and saved as:\n{newFilePath}",
-                "Success",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+                MessageBox.Show(
+                    $"Image resized and saved as:\n{newFilePath}",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"An error occurred: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
-        private static Bitmap Resize(Image image, int width, int height)
+        private static string GetNextFileName(string filePath)
         {
-            Bitmap resizedImage = new Bitmap(width, height);
+            int increment = 1;
+            string? directory = Path.GetDirectoryName(filePath);
+            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filePath);
+            string extension = Path.GetExtension(filePath);
+            string newFilePath;
+
+            if (directory == null)
+            {
+                throw new ArgumentException(
+                    "Directory cannot be determined from the file path.",
+                    nameof(filePath)
+                );
+            }
+
+            do
+            {
+                newFilePath = Path.Combine(
+                    directory,
+                    $"{fileNameWithoutExt}_Resized_{increment}{extension}"
+                );
+                increment++;
+            } while (File.Exists(newFilePath));
+
+            return newFilePath;
+        }
+
+        private static new Bitmap Resize(Image image, int width, int height)
+        {
+            Bitmap resizedImage = new(width, height);
             using (Graphics graphics = Graphics.FromImage(resizedImage))
             {
                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
